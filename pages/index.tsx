@@ -54,9 +54,10 @@ export default function Home() {
     initialSeeds[Math.floor(Math.random() * initialSeeds.length)]
   );
   const [seed, setSeed] = useState(
+      initialSeedImageMap.hasOwnProperty(seedImageId) ? (
     initialSeedImageMap[seedImageId][
       Math.floor(Math.random() * initialSeedImageMap[seedImageId].length)
-    ]
+    ]) : 0
   );
 
   // Prompts shown on screen and maintained by the prompt panel
@@ -203,7 +204,7 @@ export default function Home() {
 
   // State to handle the timeout for the player to not hog GPU forever. If you are
   // in SAME_PROMPT for this long, it will pause the player and bring up an alert.
-  const timeoutIncrement = 600.0;
+  const timeoutIncrement = 24 * 60 * 60.0;
   const [timeoutPlayerTime, setTimeoutPlayerTime] = useState(timeoutIncrement);
 
   const nowPlayingCallback = useCallback(
