@@ -13,7 +13,7 @@ import Pause from "../components/Pause";
 import PromptPanel from "../components/PromptPanel";
 import ThreeCanvas from "../components/ThreeCanvas";
 
-import { samplePrompts, initialSeeds, initialSeedImageMap } from "../prompts";
+import { samplePrompts, initialSeeds, initialSeedImageMap } from "../samplePrompts";
 
 import {
   AppState,
@@ -347,6 +347,7 @@ export default function Home() {
           inferenceResults={inferenceResults}
           nowPlayingCallback={nowPlayingCallback}
           playerIsBehindCallback={playerIsBehindCallback}
+          useCompressor={true}
         />
 
         <PromptPanel

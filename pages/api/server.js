@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-  let headers = {
+  const headers = {
     "Content-Type": "application/json",
     "Access-Control-Allow-Origin": "*",
   };
@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     method: "POST",
     headers: headers,
     body: req.body,
-    signal: AbortSignal.timeout(15000),
+    signal: AbortSignal.timeout(60000),
   });
 
   const data = await response.json();
